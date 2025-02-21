@@ -1,0 +1,129 @@
+{
+    "sessionId": "656955742317176",
+    "inputTranscript": "join a hub",
+    "interpretations": [
+        {
+            "intent": {
+                "name": "joinHub",
+                "state": "InProgress",
+                "slots": {
+                    "lastName": null,
+                    "emailAddress": null
+                },
+                "confirmationState": "None"
+            },
+            "interpretationSource": "Lex",
+            "nluConfidence": 1.0
+        },
+        {
+            "intent": {
+                "name": "FallbackIntent",
+                "state": "InProgress",
+                "slots": {},
+                "confirmationState": "None"
+            },
+            "interpretationSource": "Lex"
+        },
+        {
+            "intent": {
+                "name": "AnythingElseIntent",
+                "state": "InProgress",
+                "slots": {
+                    "yesNo": null
+                },
+                "confirmationState": "None"
+            },
+            "interpretationSource": "Lex",
+            "nluConfidence": 0.26
+        }
+    ],
+    "bot": {
+        "name": "DevFAQsBot",
+        "version": "DRAFT",
+        "localeId": "en_US",
+        "id": "ZK9UC5KYZI",
+        "aliasId": "TSTALIASID",
+        "aliasName": "TestBotAlias"
+    },
+    "responseContentType": "text/plain; charset=utf-8",
+    "proposedNextState": {
+        "prompt": {
+            "attempt": "Initial"
+        },
+        "intent": {
+            "name": "joinHub",
+            "state": "InProgress",
+            "slots": {
+                "lastName": null,
+                "emailAddress": null
+            },
+            "confirmationState": "None"
+        },
+        "dialogAction": {
+            "type": "ElicitSlot",
+            "slotToElicit": "emailAddress"
+        }
+    },
+    "messageVersion": "1.0",
+    "invocationSource": "DialogCodeHook",
+    "sessionState": {
+        "sessionAttributes": {},
+        "intent": {
+            "name": "joinHub",
+            "state": "InProgress",
+            "slots": {
+                "lastName": null,
+                "emailAddress": null
+            },
+            "confirmationState": "None"
+        },
+        "originatingRequestId": "6eabc120-c73f-4d44-918b-f9dcea53420e"
+    },
+    "transcriptions": [
+        {
+            "resolvedContext": {
+                "intent": "joinHub"
+            },
+            "transcription": "join a hub",
+            "resolvedSlots": {},
+            "transcriptionConfidence": 1.0
+        }
+    ],
+    "inputMode": "Text"
+}
+
+
+if not fulfillment_message:
+raise Exception(f"No fulfillment message found for intent: {intent}")
+response = {
+    "sessionState": {
+        "dialogAction": {
+            "slotToElicit": "emailAddress",
+            "type": "ElicitSlot"
+        },
+        "intent": {
+            "name": intent,
+            "slots": slots,
+        },
+        "sessionAttributes": response_session_attributes
+    }
+}
+
+elif intent == 'FallbackIntent':
+            # Transfer to lambdaBedrock intent
+            response = {
+    "sessionState": {
+        "dialogAction": {
+            "type": "ConfirmIntent"
+        },
+        "intent": {
+            "name": "lambdaBedrock",
+            "slots": {},
+            "state": "InProgress"
+        },
+        "sessionAttributes": {
+            "original_question": event['inputTranscript'
+            ]
+        }
+    }
+}
