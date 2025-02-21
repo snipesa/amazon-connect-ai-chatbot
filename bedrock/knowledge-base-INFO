@@ -1,0 +1,5 @@
+KnowledgBaseID : xxxxxxxxxxxx
+collection ARN : xxxxxxxxxxxxxxxxxxxxxxx
+DataSource Link : arn:aws:s3:::susp-bedrock-knowledge-base
+Embedding Model : Titan
+User querries Model : Claude Instant

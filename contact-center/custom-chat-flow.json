@@ -1,0 +1,244 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "8b92b0aa-425d-48d8-8d8e-2ac5a5c43836",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "6449c215-217f-4eaf-b6e1-01e43f7a3114": {
+        "position": {
+          "x": 1168.8,
+          "y": 79.2
+        },
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "TestBotAlias",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "DevFAQsBot"
+            }
+          }
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "DevFAQsBot",
+        "lexV2BotAliasName": "TestBotAlias",
+        "conditionMetadata": [
+          {
+            "id": "0128a1b3-cae5-41c6-82fc-9f81444d8722",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "QnABedrockIntent"
+          },
+          {
+            "id": "7ec04c79-68c5-434b-acec-af215c79f936",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "joinHub"
+          },
+          {
+            "id": "447c9407-4bc5-4b40-b3c6-98122ce5153c",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "FallbackIntent"
+          }
+        ]
+      },
+      "8b92b0aa-425d-48d8-8d8e-2ac5a5c43836": {
+        "position": {
+          "x": 169.6,
+          "y": 117.6
+        }
+      },
+      "effc6c16-8e3a-4753-9417-cfebbde0126f": {
+        "position": {
+          "x": 1137.6,
+          "y": 534.4
+        }
+      },
+      "26c4e183-33cc-4011-84da-5348acb79a72": {
+        "position": {
+          "x": 782.4,
+          "y": 44
+        }
+      },
+      "320aa788-8ad7-4968-afec-c3f5e86ace7a": {
+        "position": {
+          "x": 421.6,
+          "y": 67.2
+        },
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "TestBotAlias",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "DevFAQsBot"
+            }
+          },
+          "LexTimeoutSeconds": {
+            "Text": {
+              "unit": 60
+            }
+          }
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "DevFAQsBot",
+        "lexV2BotAliasName": "TestBotAlias",
+        "conditionMetadata": [
+          {
+            "id": "366beaf0-2939-4440-b02f-093e7c4d5eb7",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "AnythingElseIntent"
+          }
+        ]
+      }
+    },
+    "Annotations": [],
+    "name": "custom-chat-flow",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "Text": "Welcome to startupspace platform.\nHow can I help you ?",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:656955742317:bot-alias/ZK9UC5KYZI/TSTALIASID"
+        }
+      },
+      "Identifier": "6449c215-217f-4eaf-b6e1-01e43f7a3114",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+        "Conditions": [
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "QnABedrockIntent"
+              ]
+            }
+          },
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "joinHub"
+              ]
+            }
+          },
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "FallbackIntent"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "8b92b0aa-425d-48d8-8d8e-2ac5a5c43836",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "320aa788-8ad7-4968-afec-c3f5e86ace7a"
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "Text": "Noted, thanks"
+      },
+      "Identifier": "26c4e183-33cc-4011-84da-5348acb79a72",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "6449c215-217f-4eaf-b6e1-01e43f7a3114",
+        "Errors": [
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Do you still need help?",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:656955742317:bot-alias/ZK9UC5KYZI/TSTALIASID"
+        },
+        "LexTimeoutSeconds": {
+          "Text": "60"
+        }
+      },
+      "Identifier": "320aa788-8ad7-4968-afec-c3f5e86ace7a",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+        "Conditions": [
+          {
+            "NextAction": "26c4e183-33cc-4011-84da-5348acb79a72",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "AnythingElseIntent"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "ErrorType": "InputTimeLimitExceeded"
+          },
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "effc6c16-8e3a-4753-9417-cfebbde0126f",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}
