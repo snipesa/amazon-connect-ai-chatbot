@@ -1,6 +1,52 @@
-create sample website with a custom domain or utilize local host with a sample node.js site
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Connect Chat Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my site, you all!</h1>
+    <p>Amazon Connect Chat Widget Test</p>
 
-Create a custom widget on amazon connect contact center
-Include the javascript into the site. Example can be seen in the .txt file
+    <!-- Amazon Connect Chat Widget Embed Script -->
+    <script type="text/javascript">
+      (function(w, d, x, id){
+          s=d.createElement('script');
+          s.src='https://dtn7rvxwwlhud.cloudfront.net/amazon-connect-chat-interface-client.js';
+          s.async=1;
+          s.id=id;
+          d.getElementsByTagName('head')[0].appendChild(s);
+          w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
+      })(window, document, 'amazon_connect', 'YOUR_UNIQUE_ID');
+
+      // Configure chat widget
+      amazon_connect('styles', { 
+          iconType: 'CHAT', 
+          openChat: { color: '#ffffff', backgroundColor: '#0084ff' }, 
+          closeChat: { color: '#ffffff', backgroundColor: '#123456'} 
+      });
+
+      amazon_connect('snippetId', 'YOUR_SNIPPET_ID_HERE');
+      amazon_connect('supportedMessagingContentTypes', [ 
+          'text/plain', 
+          'text/markdown', 
+          'application/vnd.amazonaws.connect.message.interactive', 
+          'application/vnd.amazonaws.connect.message.interactive.response' 
+      ]);
 
 
+    // Pass the page URL as a contact attribute at the start
+      amazon_connect('contactAttributes', {
+          pageURL: window.location.href
+      });      
+    </script>
+</body>
+</html>
