@@ -170,9 +170,6 @@ Potential improvements for the chatbot:
 - Sentiment analysis for customer interactions
 - A/B testing for different response strategies
 
-## License
-
-[Add your license information here]
 
 ## Contributors
 
