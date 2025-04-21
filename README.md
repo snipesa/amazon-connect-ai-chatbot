@@ -24,8 +24,6 @@ connect-eic-chatbot/
 ├── contact-center/           # Amazon Connect contact flow configuration
 │   └── custom-chat-flow.json # Definition for the contact flow
 ├── lambda/                   # Lambda functions for bot logic
-│   ├── bedrock.py            # Integration with Amazon Bedrock
-│   ├── index.py              # Main Lambda handler
 │   ├── lex-dialogCodeHook    # Lex dialog code hook handler
 │   ├── querry-knowledgeBase  # Knowledge base query handler
 │   └── requirements.txt      # Python dependencies
